@@ -6,11 +6,11 @@
       <table class="table">
           <thead>
               <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
+                  <th scope="col">Contact ID</th>
+                  <th scope="col">Company ID</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Designation</th>
-                  <th scope="col">Contact Number</th>
                   <th class="col">Action</th>
               </tr>
           </thead>
@@ -18,10 +18,10 @@
           <tbody v-for="contact in contacts" :key="contact.id">
               <tr>
                   <th scope="row">{{ contact.id }}</th>
-                  <td>{{ contact.name }}</td>
+                  <td>{{ contact.company_id }}</td>
+                  <td>{{ contact.first_name }}</td>
+                  <td>{{ contact.last_name }}</td>
                   <td>{{ contact.email }}</td>
-                  <td>{{ contact.designation }}</td>
-                  <td>{{ contact.contact_no }}</td>
                   <td><button class="btn btn-danger btn-sm" @click.prevent="deleteContact(contact.id)">Delete</button></td>
                   <td><router-link :to="{name:'/get_contact', params: {id:contact.id} }" class="btn btn-primary btn-sm">Edit</router-link></td>            
               </tr>

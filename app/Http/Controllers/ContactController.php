@@ -18,18 +18,18 @@ class ContactController extends Controller
     }
 
     public function save_contact(Request $request) {
+        
         $contact = new Contact;
-        if($request->has('image') && !empty($request->image)) {
-            $imageName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('images/gallery'), $imageName);
-            $path = ('images/gallery/' .$imageName);
-            $contact->image = $path;  
-        }
-        $contact->name          = $request->name;  
-        $contact->email         = $request->email;  
-        $contact->designation   = $request->designation;  
-        $contact->bio           = $request->bio;  
-        $contact->contact_no    = $request->contact_no;
+        // if($request->has('image') && !empty($request->image)) {
+        //     $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+        //     $request->image->move(public_path('images/gallery'), $imageName);
+        //     $path = ('images/gallery/' .$imageName);
+        //     $contact->image = $path;  
+        // }
+        $contact->company_id    = $request->company_id;  
+        $contact->first_name    = $request->first_name;  
+        $contact->last_name     = $request->last_name;  
+        $contact->email         = $request->email;
 
 
         if($contact->save()) {
@@ -43,17 +43,16 @@ class ContactController extends Controller
     public function update_contact(Request $request, $id) {
         $contact = Contact::where('id', $id)->first();
         
-        if($request->has('image') && !empty($request->image)) {
-            $imageName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('images/gallery'), $imageName);
-            $path = ('images/gallery/' .$imageName);
-            $contact->image = $path;  
-        }
-        $contact->name          = $request->name;  
-        $contact->email         = $request->email;  
-        $contact->designation   = $request->designation;  
-        $contact->bio           = $request->bio;  
-        $contact->contact_no    = $request->contact_no;
+        // if($request->has('image') && !empty($request->image)) {
+        //     $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+        //     $request->image->move(public_path('images/gallery'), $imageName);
+        //     $path = ('images/gallery/' .$imageName);
+        //     $contact->image = $path;  
+        // }
+        $contact->company_id    = $request->company_id;  
+        $contact->first_name    = $request->first_name;  
+        $contact->last_name     = $request->last_name;  
+        $contact->email         = $request->email;
 
 
         if($contact->save()) {

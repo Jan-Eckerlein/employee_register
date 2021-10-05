@@ -17,25 +17,22 @@
                             </ul>
                         </div>
 
+
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" v-model="contact.name" class="form-control" placeholder="Enter Name">
+                            <label for="company_id">Name</label>
+                            <input type="text" id="company_id" v-model="contact.company_id" class="form-control" placeholder="Enter Company ID">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" v-model="contact.email" class="form-control" placeholder="Enter Email">
+                            <label for="first_name">Email</label>
+                            <input type="text" id="first_name" v-model="contact.first_name" class="form-control" placeholder="Enter First Name">
                         </div>
                         <div class="form-group">
-                            <label for="designation">Designation</label>
-                            <input type="text" id="designation" v-model="contact.designation" class="form-control" placeholder="Enter Designation">
+                            <label for="last_name">Designation</label>
+                            <input type="text" id="last_name" v-model="contact.last_name" class="form-control" placeholder="Enter Last Name">
                         </div>
                         <div class="form-group">
-                            <label for="contact_no">Contact Number</label> <input type="text" id="contact_no" v-model="contact.contact_no" class="form-control" 
-                            placeholder="Enter Contact Number">
-                        </div>
-                        <div class="form-group">
-                            <label for="bio">Biography</label>
-                            <textarea v-model="contact.bio" id="bio" cols="20" rows="5" class="form-control"></textarea>
+                            <label for="email">Contact Number</label> <input type="email" id="contact_no" v-model="contact.email" class="form-control" 
+                            placeholder="Enter Email">
                         </div>
 
                         <div class="form-group" v-if="contact.image">
@@ -62,11 +59,10 @@ export default {
         return {
             url: document.head.querySelector('meta[name="url').content,
             contact: {},
-            name:'',
+            company_id:'',
+            first_name:'',
+            last_name:'',
             email:'',
-            bio:'',
-            designation:'',
-            contact_no:'',
             errors: [],
         }
     },
@@ -80,27 +76,20 @@ export default {
         },
         updateContact() {
             this.errors = [];
-            if(!this.contact.name) {
-                this.errors.push('Name is required');
+            if(!this.contact.first_name) {
+                this.errors.push('First name is required');
             }
-            if(!this.contact.email) {
-                this.errors.push('Email is required');
+            if(!this.contact.last_name) {
+                this.errors.push('Last name is required');
             }
-            if(!this.contact.designation) {
-                this.errors.push('Designation is required');
-            }
-            if(!this.contact.contact_no) {
-                this.errors.push('Contact Number is required');
-            }
-
+            
             if(!this.errors.length) {
                 let formData = new FormData();
-                formData.append('name', this.contact.name);
+                formData.append('company_id', this.contact.company_id);
+                formData.append('first_name', this.contact.first_name);
+                formData.append('last_name', this.contact.last_name);
                 formData.append('email', this.contact.email);
                 formData.append('image', this.image);
-                formData.append('designation', this.contact.designation);
-                formData.append('bio', this.contact.bio);
-                formData.append('contact_no', this.contact.contact_no);
                 let url = this.url + `/api/update_contact/${this.$route.params.id}`;   
                 this.axios.post(url, formData).then((response) => {
                     if(response.status) {

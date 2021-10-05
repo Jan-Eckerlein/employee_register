@@ -10,6 +10,7 @@ import Home from './components/Home.vue';
 import ContactList from './components/ContactList.vue';
 import AddContact from './components/AddContact.vue';
 import EditContact from './components/EditContact.vue';
+import CompanyList from './components/CompanyList.vue';
 
 //sweet alert 2
 import VueSweetalert2 from 'vue-sweetalert2';
@@ -43,6 +44,10 @@ const routes = [
         name: '/get_contact',
         path: '/get_contact/edit/:id?',
         component: EditContact
+    },{
+        name: '/companies',
+        path: '/companies',
+        component: CompanyList
     }
 ];
 

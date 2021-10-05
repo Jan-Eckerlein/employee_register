@@ -21,7 +21,7 @@
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">VUEJS</a>
+    <a class="navbar-brand" href="#">Employee Register</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,6 +35,9 @@
         </li>
         <li class="nav-item">
           <router-link class="nav-link active" to="/add_contacts">Add Contact</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link active" to="/companies">Companies</router-link>
         </li>
       </ul>
     </div>

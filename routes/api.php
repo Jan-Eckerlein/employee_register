@@ -34,3 +34,9 @@ Route::post('update_contact/{id}', [App\Http\Controllers\ContactController::clas
 
 //delete Contact
 Route::delete('deleteContact/{id}', [App\Http\Controllers\ContactController::class, 'deleteContact']);
+
+//getCompanies
+Route::get('getCompanies', [App\Http\Controllers\CompanyController::class, 'getCompanies']);
+
+// Get Company Detail
+Route::get('get_contact/{id}', [App\Http\Controllers\CompanyController::class, 'get_company']);
