@@ -62,10 +62,6 @@
 
 <script>
 export default {
-    name: 'Company',
-    created() {
-        this.loadData();
-    },
     data() {
         return {
             url: document.head.querySelector('meta[name="url').content,

@@ -39,4 +39,4 @@ Route::delete('deleteContact/{id}', [App\Http\Controllers\ContactController::cla
 Route::get('getCompanies', [App\Http\Controllers\CompanyController::class, 'getCompanies']);
 
 // Get Company Detail
-Route::get('get_contact/{id}', [App\Http\Controllers\CompanyController::class, 'get_company']);
+Route::get('get_company/{id}', [App\Http\Controllers\CompanyController::class, 'get_company']);
